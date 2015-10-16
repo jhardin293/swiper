@@ -10,6 +10,10 @@ angular.module('fullTestApp')
       socket.syncUpdates('thing', $scope.awesomeThings);
     });
 
+    $http.get('/api/notes').success(function(notes){
+      console.log(notes);
+    });
+
     $scope.getColor = function($index) {
       var _d = ($index + 1) % 11;
       var bg = '';
