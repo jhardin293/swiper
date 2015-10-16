@@ -6,12 +6,11 @@ angular.module('fullTestApp')
     $mdDialog.hide();
   };
 
-  
   $scope.addThing = function() {
     if($scope.newThing === '') {
       return;
     }
-    $http.post('/api/things', { name: $scope.newThing });
+    $http.post('/api/notes', { front: $scope.newThing });
     $scope.newThing = '';
     $mdDialog.hide();
   };

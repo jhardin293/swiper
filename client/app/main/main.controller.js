@@ -3,6 +3,8 @@
 angular.module('fullTestApp')
   .controller('MainCtrl', function ($scope, $http, socket) {
     $scope.awesomeThings = [];
+    $scope.notes = [];
+    $scope.test = 'test';
 
     $http.get('/api/things').success(function(awesomeThings) {
       console.log(awesomeThings);
@@ -11,7 +13,9 @@ angular.module('fullTestApp')
     });
 
     $http.get('/api/notes').success(function(notes){
-      console.log(notes);
+      $scope.notes = notes;
+      console.log($scope.notes);
+      socket.syncUpdates('note', $scope.notes);
     });
 
     $scope.getColor = function($index) {
