@@ -1,5 +1,4 @@
 'use strict';
-
 angular.module('fullTestApp')
   .controller('MainCtrl', function ($scope, $http, socket) {
     $scope.awesomeThings = [];
@@ -17,6 +16,12 @@ angular.module('fullTestApp')
       console.log($scope.notes);
       socket.syncUpdates('note', $scope.notes);
     });
+
+    $scope.clicked = false;
+    $scope.toogleFlip = function (note) {
+      note.clicked === true ? note.clicked = false : note.clicked = true;
+      console.log($scope.notes);
+    };
 
     $scope.getColor = function($index) {
       var _d = ($index + 1) % 11;

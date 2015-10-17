@@ -8,7 +8,8 @@ angular.module('fullTestApp', [
   'ngMessages',
   'btford.socket-io',
   'ui.router',
-  'ngMaterial'
+  'ngMaterial',
+  'gajus.swing'
 ])
   .config(function($mdIconProvider) {
     $mdIconProvider

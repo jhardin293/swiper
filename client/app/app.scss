@@ -19,3 +19,11 @@
 @import 'admin/admin.scss';
 @import 'main/main.scss';
 // endinjector
+
+html,body {
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+}
