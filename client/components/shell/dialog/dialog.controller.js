@@ -7,11 +7,11 @@ angular.module('fullTestApp')
   };
 
   $scope.addThing = function() {
-    if($scope.newThing === '') {
+    if($scope.note === '') {
       return;
     }
-    $http.post('/api/notes', { front: $scope.newThing });
-    $scope.newThing = '';
+    $http.post('/api/notes', $scope.note);
+    console.log($scope.note);
     $mdDialog.hide();
   };
 });
