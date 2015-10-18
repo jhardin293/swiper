@@ -29,7 +29,7 @@ var all = {
 
   // Secret for session, you will want to change this and make it an environment variable
   secrets: {
-    session: 'swip-secret'
+    session: 'swiper-secret'
   },
 
   // List of user roles

@@ -39,7 +39,7 @@ module.exports = function(app) {
     saveUninitialized: true,
     store: new mongoStore({
       mongooseConnection: mongoose.connection,
-      db: 'swip'
+      db: 'swiper'
     })
   }));
   
