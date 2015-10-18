@@ -1,34 +1,34 @@
-div(ng-include='"components/shell/shell.html"')
-.cards
-  ul(swing-stack)
-    li(
-      swing-card,
-      swing-on-throwoutleft="throwOut(note,'unsure')",
-      swing-on-throwoutright="throwOut(note, 'sure')",
-      swing-on-throwin="throwin(eventName, eventObject)",
-      swing-on-dragstart="console.log(eventName, eventObject)",
-      swing-on-dragmove="dragmove(eventName, eventObject)",
-      swing-on-dragend="dragend(eventName, eventObject)",
-      ng-repeat="note in notes",
-      ng-if="!note.throwOut"
-     )
-       .card( ng-click="toogleFlip(note)", ng-class="{'flipped' : note.clicked}")
-         .front
-           span: h1 {{ note.front }}
-         .back
-           span: h1 {{ note.back }}
-.counts
-  h3 Sure
-  h1 {{ sure.length }}
-  br
-  br
-  h3 Unsure
-  h1 {{ unsure.length }}
-
-// md-grid-list.things-list(md-cols-sm='1', md-cols-md='2', md-cols-gt-md='5', md-row-height-gt-md='1:1', md-row-height='4:3', md-gutter='8px', md-gutter-gt-sm='4px')
-//   md-grid-tile(ng-repeat='thing in awesomeThings', ng-class='getColor($index)', md-rowspan='{{getSpan($index)}}', md-colspan='{{getSpan($index)}}', md-colspan-sm='1')
-//     md-button.md-icon-button.delete-btn(ng-click='deleteThing(thing)', aria-label='Remove item')
-//       md-icon(style='fill: #fff', md-svg-icon='action:delete')
-//     md-icon.avatar-icon(md-svg-icon='avatar:svg-{{ ($index + 1) % 11 }}')
-//     md-grid-tile-footer
-//       h3 {{thing.name}}
+.full-height.layout.layout-row
+  md-sidenav.md-sidenav-left.md-whiteframe-z2.layout(md-component-id='left',
+  md-is-locked-open="$mdMedia('gt-md')")
+    md-toolbar.md-tall.md-accent
+  .flex.layout.layout-column
+    md-toolbar
+      .md-toolbar-tools
+    md-content.layout-padding.flex
+      .new-card
+        md-button(ng-click="showAddDialog()") New card
+      .cards
+        ul(swing-stack)
+          li(
+          swing-card, swing-on-throwoutleft="throwOut(note,'unsure')",
+          swing-on-throwoutright="throwOut(note, 'sure')",
+          swing-on-throwin="throwin(eventName, eventObject)",
+          swing-on-dragstart="console.log(eventName, eventObject)",
+          swing-on-dragmove="dragmove(eventName, eventObject)",
+          swing-on-dragend="dragend(eventName, eventObject)",
+          ng-repeat="note in notes", ng-if="!note.throwOut")
+            .card( ng-mousedown="mouseDown($event)", id='yo',
+            ng-mouseup="mouseUp()",ng-click="toogleFlip(note)",
+            ng-class="{'flipped' : note.clicked}")
+              .front
+                 span: h1 {{ note.front }}
+              .back
+                span: h1 {{ note.back }}
+      .counts
+        h3 Sure
+        h1 {{ sure.length }}
+        br
+        br
+        h3 Unsure
+        h1 {{ unsure.length }}

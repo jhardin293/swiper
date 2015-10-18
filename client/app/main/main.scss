@@ -1,3 +1,22 @@
+$teal: #61D5A4;
+$grey: #556D76;
+$light-grey: #F1F5FD;
+
+md-sidenav {
+  background-color:$teal;
+  height: 100vh;
+
+  .md-accent{
+    background-color: $teal !important;
+  }
+}
+.md-toolbar-tools {
+  background-color: $grey;
+}
+
+md-content {
+  background-color: $light-grey;
+}
 .cards {
   position: relative;
 
@@ -17,6 +36,7 @@
     &:hover {
     cursor: pointer;
     }
+
 
   .front,.back {
     top: 0;
