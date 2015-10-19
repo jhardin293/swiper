@@ -16,13 +16,11 @@
         div(flex, class="flex-offset-92")
     md-fab-speed-dial.fab-wrapper(md-direction="right")
       md-fab-trigger
-       md-button.md-fab.fab-btn
-         md-icon(md-svg-src="")
+       md-button.md-fab.fab-btn(ng-click="showAddDialog()")
+         md-icon(md-svg-src="../../../assets/icons/add.svg")
     md-content.layout-padding.flex
       div(layout="row",layout-wrap)
         div(flex="50")
-          .new-card
-            md-button(ng-click="showAddDialog()") New card
           .cards
             ul(swing-stack)
               li(
