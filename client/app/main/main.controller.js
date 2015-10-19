@@ -3,13 +3,15 @@ angular.module('fullTestApp')
   .controller('MainCtrl', function ($scope, $interval,
   $http, socket, $mdDialog, $mdMedia) {
 
-    $scope.sideBar = $mdMedia('gt-md');
+    $scope.$watch(function() { return $mdMedia('gt-md'); }, function(md) {
+      $scope.sideBar = md;
+    });
 
     $scope.toogleSideBar = function () {
       if ($scope.sideBar === true) {
         $scope.sideBar = false;
       }else {
-        $scope.sideBar = $mdMedia('gt-md');
+        $scope.sideBar = true;
       }
     };
 
