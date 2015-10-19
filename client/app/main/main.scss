@@ -1,9 +1,20 @@
 $teal: #61D5A4;
 $grey: #556D76;
 $light-grey: #F7F8FA;
+$md-grey: #DFE5F0;
+$yellow: #E2BC40;
 
 .layout-row {
   height: 100vh;
+}
+
+.fab-wrapper {
+  position: fixed;
+  bottom: 21px;
+  right: 41px;
+  .fab-btn {
+    background-color: $yellow;
+  }
 }
 md-sidenav {
   background-color:$teal;
@@ -50,8 +61,12 @@ md-content {
 }
 
 .top-nav {
-  box-shadow: 0 2px 6px 0 rgba(0,0,0,.14);
   z-index: 4;
+}
+
+.sub-nav {
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,.14);
+  background-color: $md-grey;
 }
 .cards {
   position: relative;
@@ -95,6 +110,8 @@ md-content {
 
   .front{
     background-color: white;
+    background-image:linear-gradient(90deg, transparent 79px, #abced4 81px, transparent 81px), linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 1.2em;
   }
 
   .back {
@@ -114,4 +131,8 @@ md-content {
   }
 
  }
+}
+
+.break-down {
+  margin-left: 100px;
 }

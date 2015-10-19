@@ -11,6 +11,13 @@
         div(flex, class="flex-offset-92")
           md-button.tool-bar-button(ng-click="toogleSideBar()")
             md-icon(md-svg-icon="../../assets/icons/expand.svg")
+    md-toolbar
+      .md-toolbar-tools.sub-nav
+        div(flex, class="flex-offset-92")
+    md-fab-speed-dial.fab-wrapper(md-direction="right")
+      md-fab-trigger
+       md-button.md-fab.fab-btn
+         md-icon(md-svg-src="")
     md-content.layout-padding.flex
       div(layout="row",layout-wrap)
         div(flex="50")
@@ -34,10 +41,15 @@
                   .back
                     span: h1 {{ note.back }}
         div(flex="50")
-          .counts
-            h3 Sure
-            h1 {{ sure.length }}
-            br
-            br
-            h3 Unsure
-            h1 {{ unsure.length }}
+          .break-down
+            .counts
+              h3 Cards
+              h1 {{ notes.length }}
+              br
+              br
+              h3 Sure
+              h1 {{ sure.length }}
+              br
+              br
+              h3 Unsure
+              h1 {{ unsure.length }}
