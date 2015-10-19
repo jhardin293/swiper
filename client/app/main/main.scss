@@ -1,38 +1,76 @@
 $teal: #61D5A4;
 $grey: #556D76;
-$light-grey: #F1F5FD;
+$light-grey: #F7F8FA;
 
 md-sidenav {
   background-color:$teal;
   height: 100vh;
+  -moz-transform: scale(1,1);
+  -webkit-transform: scale(1,1);
+  transform: scale(1,1);
+  background: linear-gradient($teal,rgba(97, 213, 164, 0.81)),
+   url('https://images.unsplash.com/photo-1432821596592-e2c18b78144f?q=80&fm=jpg&s=a4598570a3286ea23369fdefe46953ba');
+  background-size: cover;
 
   .md-accent{
     background-color: $teal !important;
   }
+
+  .md-toolbar-tools {
+    h2 {
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1px;
+      font-size: 130%;
+      margin-left: 12px;
+      color: white;
+   }
+  }
 }
+
 .md-toolbar-tools {
   background-color: $grey;
+}
+
+.flex-offset-92 {
+  margin-left: 92%;
+}
+
+.tool-bar-button {
+  height: 60px;
+  border-left: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 0;
 }
 
 md-content {
   background-color: $light-grey;
 }
+
+.top-nav {
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,.14);
+  z-index: 4;
+}
 .cards {
   position: relative;
 
-  ul{
-    position: absolute;
-    background-color: #E5E2E2;
-    width: 200px;
-    height: 300px;
-    left: 50%;
+  ul {
+  position: absolute;
   }
 
- li {
-   position: absolute;
-    background-color: #EDEDED;
-    width: 200px;
-    height: 300px;
+  li {
+    .card {
+      position: absolute;
+      background-color: #EDEDED;
+      width: 200px;
+      height: 300px;
+      padding: 1.5rem;
+      box-shadow: 0 1px 2px #aaa;
+      background: white;
+      margin: 0 1rem 1rem;
+      border-radius: 3px;
+      -webkit-user-select: none;
+    }
+
     &:hover {
     cursor: pointer;
     }
@@ -43,6 +81,7 @@ md-content {
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: 3px;
     position: absolute;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -51,11 +90,11 @@ md-content {
   }
 
   .front{
-    background-color: #ff5078;
+    background-color: white;
   }
 
   .back {
-    background-color: #79CBC0;
+    background-color: white;
     -webkit-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
   }

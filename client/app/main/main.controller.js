@@ -1,8 +1,19 @@
 'use strict';
 angular.module('fullTestApp')
-  .controller('MainCtrl', function ($scope, $interval, $http, socket, $mdDialog) {
-    $scope.notes = [];
+  .controller('MainCtrl', function ($scope, $interval,
+  $http, socket, $mdDialog, $mdMedia) {
 
+    $scope.sideBar = $mdMedia('gt-md');
+
+    $scope.toogleSideBar = function () {
+      if ($scope.sideBar === true) {
+        $scope.sideBar = false;
+      }else {
+        $scope.sideBar = $mdMedia('gt-md');
+      }
+    };
+
+    $scope.notes = [];
     $http.get('/api/notes').success(function(notes){
       $scope.notes = notes;
       socket.syncUpdates('note', $scope.notes);
@@ -53,8 +64,8 @@ angular.module('fullTestApp')
         targetEvent: $event,
         templateUrl: 'components/dialog/dialog.html',
         controller: 'DialogController'
-      })
-    }
+      });
+    };
 
     $scope.deleteThing = function(thing) {
       $http.delete('/api/things/' + thing._id);
