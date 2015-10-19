@@ -21,6 +21,16 @@ angular.module('fullTestApp')
       socket.syncUpdates('note', $scope.notes);
     });
 
+    $scope.cardView = true;
+    $scope.listView = false;
+    $scope.listViewOn = function () {
+      if (!$scope.listView) {
+        $scope.listView = true;
+      }else{
+        $scope.listView = false;
+      }
+    };
+
     var updateCounts = function () {
       $scope.sure = _.where($scope.notes, { understand: true, throwOut: true });
       $scope.unsure = _.where($scope.notes, { understand: false , throwOut: true});

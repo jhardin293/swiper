@@ -13,41 +13,51 @@
             md-icon(md-svg-icon="../../assets/icons/expand.svg")
     md-toolbar
       .md-toolbar-tools.sub-nav
-        div(flex, class="flex-offset-92")
+        md-button
+          p(ng-click="listViewOn()") list view
     md-fab-speed-dial.fab-wrapper(md-direction="right")
       md-fab-trigger
        md-button.md-fab.fab-btn(ng-click="showAddDialog()")
          md-icon(md-svg-src="../../../assets/icons/add.svg")
     md-content.layout-padding.flex
-      div(layout="row",layout-wrap)
-        div(flex="50")
-          .cards
-            ul(swing-stack)
-              li(
-              swing-card, swing-on-throwoutleft="throwOut(note,'unsure')",
-              swing-on-throwoutright="throwOut(note, 'sure')",
-              swing-on-throwin="throwin(eventName, eventObject)",
-              swing-on-dragstart="console.log(eventName, eventObject)",
-              swing-on-dragmove="dragmove(eventName, eventObject)",
-              swing-on-dragend="dragend(eventName, eventObject)",
-              ng-repeat="note in notes", ng-if="!note.throwOut")
-                .card( ng-mousedown="mouseDown($event)", id='yo',
-                ng-mouseup="mouseUp()",ng-click="toogleFlip(note)",
-                ng-class="{'flipped' : note.clicked}")
-                  .front
-                     span: h1 {{ note.front }}
-                  .back
-                    span: h1 {{ note.back }}
-        div(flex="50")
-          .break-down
-            .counts
-              h3 Cards
-              h1 {{ notes.length }}
-              br
-              br
-              h3 Sure
-              h1 {{ sure.length }}
-              br
-              br
-              h3 Unsure
-              h1 {{ unsure.length }}
+      div(ng-if="listView")
+        div(layout="row",layout-wrap)
+          div(flex="100")
+            .list-item(ng-repeat="note in notes")
+              .front
+                h3 {{ note.front }}
+              .back
+                h3 {{ note.back }}
+      div(ng-if="cardView")
+        div(layout="row",layout-wrap)
+          div(flex="50")
+            .cards
+              ul(swing-stack)
+                li(
+                swing-card, swing-on-throwoutleft="throwOut(note,'unsure')",
+                swing-on-throwoutright="throwOut(note, 'sure')",
+                swing-on-throwin="throwin(eventName, eventObject)",
+                swing-on-dragstart="console.log(eventName, eventObject)",
+                swing-on-dragmove="dragmove(eventName, eventObject)",
+                swing-on-dragend="dragend(eventName, eventObject)",
+                ng-repeat="note in notes", ng-if="!note.throwOut")
+                  .card( ng-mousedown="mouseDown($event)", id='yo',
+                  ng-mouseup="mouseUp()",ng-click="toogleFlip(note)",
+                  ng-class="{'flipped' : note.clicked}")
+                    .front
+                       span: h1 {{ note.front }}
+                    .back
+                      span: h1 {{ note.back }}
+          div(flex="50")
+            .break-down
+              .counts
+                h3 Cards
+                h1 {{ notes.length }}
+                br
+                br
+                h3 Sure
+                h1 {{ sure.length }}
+                br
+                br
+                h3 Unsure
+                h1 {{ unsure.length }}
