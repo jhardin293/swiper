@@ -1,0 +1,10 @@
+md-button.md-button-toggle.sidenav-menu(ng-click="toggle()")
+  div(flex layout="row")
+    {{ section.name }}
+    span(flex)
+    span.md-toggle-icon(ng-class="{'toggled' : isOpen()}")
+      md-icon(md-svg-src="../../../assets/icons/arrow-up.svg")
+ul.menu-toggle-list
+  li(ng-repeat="page in section.pages")
+    h3 {{ page.name  }}
+

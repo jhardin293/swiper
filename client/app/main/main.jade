@@ -5,6 +5,12 @@
      .md-toolbar-tools.layout.layout-row.layout-align-start-center
       .sidebar-left-logo
         h2.sidebar-left-title.flex Swiper
+    md-content.nav-content(flex)
+      ul
+         li()
+           ul()
+             li()
+               menu-toggle(section="decks")
   .flex.layout.layout-column
     md-toolbar.top-nav
       .md-toolbar-tools
@@ -19,7 +25,7 @@
       md-fab-trigger
        md-button.md-fab.fab-btn(ng-click="showAddDialog()")
          md-icon(md-svg-src="../../../assets/icons/add.svg")
-    md-content.layout-padding.flex
+    md-content.main-content.layout-padding.flex
       div(ng-if="listView")
         div(layout="row",layout-wrap)
           div(flex="100")

@@ -15,6 +15,29 @@ angular.module('fullTestApp')
       }
     };
 
+    // Methods used by menuToggle directive
+    var isDeckListOpen = true;
+    function toggleDeckList () {
+      if (isDeckListOpen === true) {
+        isDeckListOpen = false;
+      }else {
+        isDeckListOpen = true;
+      }
+      this.isDeckListOpen = isDeckListOpen;
+    }
+    this.isDeckListOpen = isDeckListOpen;
+    this.toggleDeckList = toggleDeckList;
+
+    //For deck list in side nave
+    $scope.decks = {
+      name : 'Decks',
+      pages: [
+        { name: 'Javascript'},
+        { name: 'HTML'},
+        { name: 'CSS'},
+      ]
+    };
+
     $scope.notes = [];
     $http.get('/api/notes').success(function(notes){
       $scope.notes = notes;
@@ -26,8 +49,10 @@ angular.module('fullTestApp')
     $scope.listViewOn = function () {
       if (!$scope.listView) {
         $scope.listView = true;
+        $scope.cardView = false;
       }else{
         $scope.listView = false;
+        $scope.cardView = true;
       }
     };
 
