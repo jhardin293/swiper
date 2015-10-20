@@ -35,8 +35,8 @@
               .back
                 h3 {{ note.back }}
       div(ng-if="cardView")
-        div(layout="row",layout-wrap)
-          div(flex="50")
+        div(layout="row",layout-sm="column")
+          div(flex)
             .cards
               ul(swing-stack)
                 li(
@@ -48,22 +48,34 @@
                 swing-on-dragend="dragend(eventName, eventObject)",
                 ng-repeat="note in notes", ng-if="!note.throwOut")
                   .card( ng-mousedown="mouseDown($event)", id='yo',
-                  ng-mouseup="mouseUp()",ng-click="toogleFlip(note)",
+                  ng-mouseup="mouseUp()",
                   ng-class="{'flipped' : note.clicked}")
                     .front
-                       span: h1 {{ note.front }}
+                      .controlls(layout="row")
+                        div(flex="50")
+                          md-button.card-top.left
+                            md-icon(md-svg-icon="../../assets/icons/favorite.svg")
+                        div(flex="50")
+                          md-button.card-top.right(ng-click="toogleFlip(note)")
+                            md-icon(md-svg-icon="../../assets/icons/flip.svg")
+                      h1 {{ note.front }}
                     .back
-                      span: h1 {{ note.back }}
-          div(flex="50")
-            .break-down
-              .counts
+                      .controlls(layout="row")
+                        div(flex="50")
+                          md-button.card-top.left
+                            md-icon(md-svg-icon="../../assets/icons/favorite.svg")
+                        div(flex="50")
+                          md-button.card-top.right(ng-click="toogleFlip(note)")
+                            md-icon(md-svg-icon="../../assets/icons/flip.svg")
+                      h1 {{ note.back }}
+          div(flex)
+            .break-down(layout)
+              div(flex)
+                h1 {{ notes.length || 0 }}
                 h3 Cards
-                h1 {{ notes.length }}
-                br
-                br
+              div(flex)
+                h1 {{ sure.length || 0 }}
                 h3 Sure
-                h1 {{ sure.length }}
-                br
-                br
+              div(flex)
+                h1 {{ unsure.length || 0 }}
                 h3 Unsure
-                h1 {{ unsure.length }}
