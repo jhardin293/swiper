@@ -9,7 +9,8 @@ angular.module('fullTestApp', [
   'btford.socket-io',
   'ui.router',
   'ngMaterial',
-  'gajus.swing'
+  'gajus.swing',
+  'mobile-angular-ui.gestures'
 ])
   .config(function($mdIconProvider) {
     $mdIconProvider

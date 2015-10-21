@@ -46,6 +46,7 @@
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
+
     <!-- build:js({client,node_modules}) app/vendor.js -->
       <!-- bower:js -->
       <script src="bower_components/angular/angular.js"></script>
@@ -61,13 +62,15 @@
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/angular-swing/dist/angular-swing.min.js"></script>
       <script src="bower_components/d3/d3.js"></script>
+      <script src="bower_components/angular-touch/angular-touch.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
+      <script src="vendor/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.min.js"></script>
 
-        
+
         <!-- build:js({.tmp,client}) app/app.js -->
-        
+
         <script src="app/app.js"></script>
           <!-- injector:js -->
           <script src="app/account/account.js"></script>
@@ -80,6 +83,7 @@
           <script src="app/main/main.js"></script>
           <script src="app/menuToggle/menuToggle.directive.js"></script>
           <script src="app/progressTracker/progressTracker.directive.js"></script>
+          <script src="app/swipe/swipe.directive.js"></script>
           <script src="components/auth/auth.service.js"></script>
           <script src="components/auth/user.service.js"></script>
           <script src="components/dialog/dialog.controller.js"></script>

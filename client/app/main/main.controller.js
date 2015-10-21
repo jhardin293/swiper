@@ -74,21 +74,26 @@ angular.module('fullTestApp')
       updateCounts();
     };
 
-    // var promise;
-    // $scope.mouseDown = function (e) {
-    //   console.log('mouseDown');
-    //   var i = 0;
-    //   promise = $interval(function() {
-    //   //var transform = e.target.parentNode;
-    //   var transform = angular.element(e.target).parent();
-    //    console.log(transform,++i);
-    //   },100)
-    // };
+    //Used for swip dirictive
+    this.itemCount = 0;
+    this.activeItem = null;
 
-    // $scope.mouseUp = function () {
-    //   $interval.cancel(promise);
-    //   console.log('mouseUp');
-    // };
+    this.addItem = function(){
+      var newId = this.itemCount++;
+      this.activeItem = this.itemCount === 1 ? newId : this.activeItem;
+      return newId;
+    };
+
+    this.next = function(){
+      this.activeItem = this.activeItem || 0;
+      this.activeItem = this.activeItem === this.itemCount - 1 ? 0 : this.activeItem + 1;
+    };
+
+    this.prev = function(){
+      this.activeItem = this.activeItem || 0;
+      this.activeItem = this.activeItem === 0 ? this.itemCount - 1 : this.activeItem - 1;
+    };
+
 
     $scope.toogleFlip = function (note) {
       note.clicked === true ? note.clicked = false : note.clicked = true;
