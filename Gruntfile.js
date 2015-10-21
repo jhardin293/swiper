@@ -232,7 +232,7 @@ module.exports = function (grunt) {
       target: {
         src: '<%= yeoman.client %>/index.html',
         ignorePath: '<%= yeoman.client %>/',
-        exclude: ['/json3/', '/es5-shim/']
+        exclude: ['/json3/', '/es5-shim/', '/bower_components/mobile-angular-ui/dist/css/']
       }
     },
 
