@@ -69,13 +69,18 @@
                             md-icon(md-svg-icon="../../assets/icons/flip.svg")
                       h1 {{ note.back }}
           div(flex)
-            .break-down(layout)
+            div(layout="column")
               div(flex)
-                h1 {{ notes.length || 0 }}
-                h3 Cards
+                .break-down(layout)
+                  div(flex)
+                    h1 {{ notes.length || 0 }}
+                    h3 Cards
+                  div(flex)
+                    h1 {{ sure.length || 0 }}
+                    h3 Sure
+                  div(flex)
+                    h1 {{ unsure.length || 0 }}
+                    h3 Unsure
               div(flex)
-                h1 {{ sure.length || 0 }}
-                h3 Sure
-              div(flex)
-                h1 {{ unsure.length || 0 }}
-                h3 Unsure
+                progress-tracker(value="sure.length || 0", max-value="notes.length")
+                h1 VIS GOES HERE

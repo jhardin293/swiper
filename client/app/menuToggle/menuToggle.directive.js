@@ -9,9 +9,7 @@ angular.module('fullTestApp')
       templateUrl: 'app/menuToggle/menuToggle.html',
       link: function ($scope, $element) {
         var controller = $element.parent().controller();
-
         $scope.isOpen = function() {
-          console.log(controller.isDeckListOpen);
           return controller.isDeckListOpen;
         };
 
@@ -24,7 +22,6 @@ angular.module('fullTestApp')
               return $scope.isOpen();
             },
             function (open) {
-              console.log(open, 'what is happing');
               var $ul = $element.find('ul');
               $timeout(function () {
                 $ul.css({ height: targetHeight + 'px' });
