@@ -62,17 +62,6 @@ angular.module('fullTestApp')
       console.log('sure', $scope.sure.length, 'unsure', $scope.unsure.length);
     };
 
-    $scope.throwOut = function (note, action) {
-      note.throwOut = true;
-
-      if(action === 'sure') {
-        note.understand = true;
-      }else{
-        note.understand = false;
-      }
-
-      updateCounts();
-    };
 
     //Used for swip dirictive
     this.itemCount = 0;
@@ -84,16 +73,16 @@ angular.module('fullTestApp')
       return newId;
     };
 
-    this.next = function(){
-      this.activeItem = this.activeItem || 0;
-      this.activeItem = this.activeItem === this.itemCount - 1 ? 0 : this.activeItem + 1;
-    };
+    this.throwOut = function (note, action) {
+      note.throwOut = true;
+      if(action === 'prev') {
+        note.understand = true;
+      }else if (action === 'next') {
+        note.understand = false;
+      }
 
-    this.prev = function(){
-      this.activeItem = this.activeItem || 0;
-      this.activeItem = this.activeItem === 0 ? this.itemCount - 1 : this.activeItem - 1;
+      updateCounts();
     };
-
 
     $scope.toogleFlip = function (note) {
       note.clicked === true ? note.clicked = false : note.clicked = true;

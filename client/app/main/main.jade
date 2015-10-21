@@ -38,7 +38,7 @@
         div(layout="row",layout-sm="column")
           div(flex)
             .cards(id="cards")
-              .card-wrapper(ng-repeat="note in notes", ng-if="!note.throwOut", swipe-Item)
+              .card-wrapper(ng-repeat="note in notes", ng-if="!note.throwOut", swipe-Item, note="note")
                 .card( ng-class="{'flipped' : note.clicked}")
                   .front
                     .controlls(layout="row")
