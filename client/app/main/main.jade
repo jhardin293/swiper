@@ -82,5 +82,4 @@
                     h1 {{ unsure.length || 0 }}
                     h3 Unsure
               div(flex)
-                progress-tracker(value="sure.length || 0", max-value="notes.length")
-                h1 VIS GOES HERE
+                progress-tracker(value="sure.length + unsure.length || 0", max-value="notes.length")

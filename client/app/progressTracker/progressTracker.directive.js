@@ -9,6 +9,7 @@ angular.module('fullTestApp')
         maxValue: '='
       },
       link: function (scope, element) {
+        var formatPercent = d3.format('.0%');
         var width = 500,
             height = 500,
             piSquared = 2 * Math.PI;
@@ -31,14 +32,19 @@ angular.module('fullTestApp')
         var foreground = svg.append('path')
             .style('fill','orange')
 
+        var numberText = svg.append('text')
+            .attr('fill', 'black')
+            .attr('text-anchor', 'middle')
+            .attr('font-size', '190%');
+
        scope.$watchGroup(['value', 'maxValue'],function(newVal){
          var value = newVal[0];
          var maxValue = newVal[1];
          var progress = value/maxValue;
-         console.log(progress, 'inital');
          if(!isNaN(progress)){
-           console.log(progress, 'secondary');
+           console.log(progress);
            foreground.attr('d', arc.endAngle(piSquared * progress));
+           numberText.text(formatPercent(progress));
          }
        });
       }
