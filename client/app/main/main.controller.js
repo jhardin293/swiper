@@ -44,6 +44,11 @@ angular.module('fullTestApp')
       socket.syncUpdates('note', $scope.notes);
     });
 
+    $scope.deleteNote = function (note) {
+      console.log(note._id);
+      $http.delete('/api/notes/'+ note._id);
+    };
+
     $scope.cardView = true;
     $scope.listView = false;
     $scope.listViewOn = function () {
@@ -61,6 +66,16 @@ angular.module('fullTestApp')
       $scope.unsure = _.where($scope.notes, { understand: false , throwOut: true});
       console.log('sure', $scope.sure.length, 'unsure', $scope.unsure.length);
     };
+
+    $scope.reset = function () {
+      _.each($scope.notes, function(note, i){
+        console.log(i);
+        delete $scope.notes[i].understand;
+        $scope.notes[i].throwOut = false;
+      })
+      updateCounts();
+    }
+
 
 
     //Used for swip dirictive

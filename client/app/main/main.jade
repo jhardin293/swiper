@@ -16,15 +16,17 @@
       .md-toolbar-tools
         div(flex, class="flex-offset-92")
           md-button.tool-bar-button(ng-click="toogleSideBar()")
-            md-icon(md-svg-icon="../../assets/icons/expand.svg")
+            md-icon(md-svg-icon="../../assets/iconsets/expand.svg")
     md-toolbar
       .md-toolbar-tools.sub-nav
         md-button
           p(ng-click="listViewOn()") list view
+        md-button
+          p(ng-click="reset()") reset
     md-fab-speed-dial.fab-wrapper(md-direction="right")
       md-fab-trigger
        md-button.md-fab.fab-btn(ng-click="showAddDialog()")
-         md-icon(md-svg-src="../../../assets/icons/add.svg")
+         md-icon(md-svg-src="../../../assets/iconsets/add.svg")
     md-content.main-content.layout-padding.flex
       div(ng-if="listView")
         div(layout="row",layout-wrap)
@@ -38,26 +40,41 @@
         div(layout="row",layout-sm="column")
           div(flex)
             .cards(id="cards")
-              .card-wrapper(ng-repeat="note in notes", ng-if="!note.throwOut", swipe-Item, note="note")
+              .card-wrapper(ng-repeat="note in notes", ng-if="!note.throwOut"
+              , swipe-Item, note="note", id='note{{ $index }}')
                 .card( ng-class="{'flipped' : note.clicked}")
                   .front
                     .controlls(layout="row")
                       div(flex="50")
                         md-button.card-top.left
-                          md-icon(md-svg-icon="../../assets/icons/favorite.svg")
+                          md-icon(md-svg-icon="../../assets/iconsets/favorite.svg")
                       div(flex="50")
                         md-button.card-top.right(ng-click="toogleFlip(note)")
-                          md-icon(md-svg-icon="../../assets/icons/flip.svg")
+                          md-icon(md-svg-icon="../../assets/iconsets/flip.svg")
                     h1 {{ note.front }}
+                    .controlls(layout="row")
+                      div(flex="50")
+                        md-button.card-top.left(ng-click="deleteNote(note)")
+                          md-icon(md-svg-icon="../../assets/iconsets/delete.svg")
+                      div(flex="50")
+                        md-button.card-top.right(ng-click="toogleFlip(note)")
+                          md-icon(md-svg-icon="../../assets/iconsets/edit.svg")
                   .back
                     .controlls(layout="row")
                       div(flex="50")
                         md-button.card-top.left
-                          md-icon(md-svg-icon="../../assets/icons/favorite.svg")
+                          md-icon(md-svg-icon="../../assets/iconsets/favorite.svg")
                       div(flex="50")
                         md-button.card-top.right(ng-click="toogleFlip(note)")
-                          md-icon(md-svg-icon="../../assets/icons/flip.svg")
+                          md-icon(md-svg-icon="../../assets/iconsets/flip.svg")
                     h1 {{ note.back }}
+                    .controlls(layout="row")
+                      div(flex="50")
+                        md-button.card-top.left
+                          md-icon(md-svg-icon="../../assets/iconsets/delete.svg")
+                      div(flex="50")
+                        md-button.card-top.right(ng-click="toogleFlip(note)")
+                          md-icon(md-svg-icon="../../assets/iconsets/edit.svg")
           div(flex)
             div(layout="column")
               div(flex)
