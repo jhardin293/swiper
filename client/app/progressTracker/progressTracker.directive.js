@@ -33,7 +33,7 @@ angular.module('fullTestApp')
             .attr('d', arc.endAngle(piSquared));
 
         var foreground = svg.append('path')
-            .style('fill','orange')
+            .style('fill','#E2BC40')
 
         var numberText = svg.append('text')
             .attr('fill', 'black')

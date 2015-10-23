@@ -8,19 +8,27 @@
     md-content.nav-content(flex)
       ul
          li()
+           p View
+           h3(ng-click="listViewOn()")
+             span: img(src="../../assets/iconsets/list.svg")
+             | List
+           h3
+             span: img(src="../../assets/iconsets/card.svg")
+             | Card
+           h3
+             span: img(src="../../assets/iconsets/grid.svg")
+             | Grid
            ul()
              li()
                menu-toggle(section="decks")
   .flex.layout.layout-column
     md-toolbar.top-nav
       .md-toolbar-tools
-        div(flex, class="expand")
+        div(flex, class="expand", ng-if="sidebarLocked")
           md-button.tool-bar-button(ng-click="toogleSideBar()")
             md-icon(md-svg-icon="../../assets/iconsets/expand.svg")
     md-toolbar
       .md-toolbar-tools.sub-nav
-        md-button
-          p(ng-click="listViewOn()") list view
         md-button
           p(ng-click="reset()") reset
         md-button
@@ -39,11 +47,11 @@
           div(flex)
             .instructions
               div(layout)
-                div(flex)
+                .left(flex)
                   p
                    span: img(src="../../assets/iconsets/swipe-left.svg")
                    | Swipe left if unsure
-                div(flex)
+                .right(flex)
                   p Swipe right if sure
                    span: img(src="../../assets/iconsets/swipe-right.svg")
             .cards(id="cards")
@@ -61,10 +69,10 @@
                     h1 {{ note.front }}
                     .controlls(layout="row")
                       div(flex="50")
-                        md-button.card-top.left(ng-click="deleteNote(note)")
+                        md-button.card-bottom.left(ng-click="deleteNote(note)")
                           md-icon(md-svg-icon="../../assets/iconsets/delete.svg")
                       div(flex="50")
-                        md-button.card-top.right(ng-click="toogleFlip(note)")
+                        md-button.card-bottom.right(ng-click="toogleFlip(note)")
                           md-icon(md-svg-icon="../../assets/iconsets/edit.svg")
                   .back
                     .controlls(layout="row")
@@ -77,10 +85,10 @@
                     h1 {{ note.back }}
                     .controlls(layout="row")
                       div(flex="50")
-                        md-button.card-top.left
+                        md-button.card-bottom.left(ng-click="deleteNote(note)")
                           md-icon(md-svg-icon="../../assets/iconsets/delete.svg")
                       div(flex="50")
-                        md-button.card-top.right(ng-click="toogleFlip(note)")
+                        md-button.card-bottom.right(ng-click="toogleFlip(note)")
                           md-icon(md-svg-icon="../../assets/iconsets/edit.svg")
           div(flex)
             div(layout="column")
