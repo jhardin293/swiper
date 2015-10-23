@@ -81,10 +81,10 @@
                     h1 {{ notes.length || 0 }}
                     h3 Cards
                   div(flex)
-                    h1 {{ sure.length || 0 }}
-                    h3 Sure
-                  div(flex)
                     h1 {{ unsure.length || 0 }}
                     h3 Unsure
+                  div(flex)
+                    h1 {{ sure.length || 0 }}
+                    h3 Sure
               div(flex)
                 progress-tracker(value="sure.length + unsure.length || 0", max-value="notes.length")
