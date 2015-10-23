@@ -123,6 +123,16 @@ md-toolbar{
 .main-content {
   padding-top: 20px;
 }
+
+.instructions {
+  p {
+    font-size: 70%;
+  }
+
+  img {
+    width: 25px;
+  }
+}
 .cards {
   height: 300px;
   position: relative;

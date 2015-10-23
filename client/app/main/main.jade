@@ -37,6 +37,15 @@
       div(ng-if="cardView")
         div(layout="row",layout-sm="column")
           div(flex)
+            .instructions
+              div(layout)
+                div(flex)
+                  p
+                   span: img(src="../../assets/iconsets/swipe-left.svg")
+                   | Swipe left if unsure
+                div(flex)
+                  p Swipe right if sure
+                   span: img(src="../../assets/iconsets/swipe-right.svg")
             .cards(id="cards")
               .card-wrapper(ng-repeat="note in notes", ng-if="!note.throwOut"
               , swipe-Item, note="note", id='note{{ $index }}')
