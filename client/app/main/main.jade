@@ -1,6 +1,6 @@
 .full-height.layout.layout-row
   md-sidenav.md-sidenav-left.md-whiteframe-z2.layout(md-component-id='left',
-  md-is-locked-open="sideBar")
+  md-is-locked-open="sideBarLocked", md-is-open="sideBar")
     md-toolbar.sidebar-left-toolbar
      .md-toolbar-tools.layout.layout-row.layout-align-start-center
       .sidebar-left-logo
@@ -14,7 +14,7 @@
   .flex.layout.layout-column
     md-toolbar.top-nav
       .md-toolbar-tools
-        div(flex, class="flex-offset-92")
+        div(flex, class="expand")
           md-button.tool-bar-button(ng-click="toogleSideBar()")
             md-icon(md-svg-icon="../../assets/iconsets/expand.svg")
     md-toolbar

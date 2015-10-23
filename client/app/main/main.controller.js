@@ -2,17 +2,35 @@
 angular.module('fullTestApp')
   .controller('MainCtrl', function ($scope, $interval,
   $http, socket, $mdDialog, $mdMedia) {
-
+    $scope.sideBarLocked = true;
     $scope.$watch(function() { return $mdMedia('gt-md'); }, function(md) {
       $scope.sideBar = md;
+      $scope.sideBarLocked = md;
+      console.log(md);
     });
 
     $scope.toogleSideBar = function () {
-      if ($scope.sideBar === true) {
-        $scope.sideBar = false;
+      if($mdMedia('gt-md') === true){
+        if ($scope.sideBar === true) {
+          console.log('gt md false if');
+          $scope.sideBar = false;
+          $scope.sideBarLocked = false;
+        }else {
+          console.log('gt md false else');
+          $scope.sideBarLocked = true;
+          $scope.sideBar = true;
+        }
       }else {
-        $scope.sideBar = true;
+        if ($scope.sideBar === true) {
+          console.log('gt md true if ');
+          $scope.sideBar = false;
+        }else {
+          console.log('gt md true if ');
+          $scope.sideBar = true;
+        }
       }
+
+
     };
 
     // Methods used by menuToggle directive
@@ -91,9 +109,9 @@ angular.module('fullTestApp')
     this.throwOut = function (note, action) {
       note.throwOut = true;
       if(action === 'prev') {
-        note.understand = true;
-      }else if (action === 'next') {
         note.understand = false;
+      }else if (action === 'next') {
+        note.understand = true;
       }
 
       updateCounts();

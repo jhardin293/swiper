@@ -94,8 +94,9 @@ md-sidenav {
   background-color: $grey;
 }
 
-.flex-offset-92 {
-  margin-left: 92%;
+.expand {
+  position: absolute;
+  right: 0;
 }
 
 .tool-bar-button {

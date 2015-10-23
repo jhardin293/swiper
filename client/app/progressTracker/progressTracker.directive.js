@@ -9,20 +9,23 @@ angular.module('fullTestApp')
         maxValue: '='
       },
       link: function (scope, element) {
-        var formatPercent = d3.format('.0%');
-        var width = 500,
-            height = 500,
-            piSquared = 2 * Math.PI;
+        var formatPercent = d3.format('.0%'),
+            diameter = 150,
+            ringThickness = 5,
+            piSquared = 2 * Math.PI,
+            margin = {left:20, right:40, top:10, bottom:10};
 
         var svg = d3.select(element[0]).append('svg')
-            .attr('width', width)
-            .attr('height', height)
+            .attr('width', '100%')
+            .attr('height','100%')
+             .attr("viewBox","0 0 " + (margin.left + diameter + margin.right) +" " + (margin.top + diameter + margin.bottom) )
+             .attr('preserveAspectRatio', 'xMidYMid meet')
           .append('g')
-            .attr('transform', 'translate(' + width/2 +','+ height/2 +')');
+            .attr('transform', 'translate(' + (margin.left/2 + diameter - 60) +','+ (margin.top + diameter/2) +')');
 
         var arc = d3.svg.arc()
-            .innerRadius(180)
-            .outerRadius(200)
+            .innerRadius(diameter/2)
+            .outerRadius(diameter/2 - ringThickness)
             .startAngle(0);
 
         var background = svg.append('path')
@@ -35,7 +38,7 @@ angular.module('fullTestApp')
         var numberText = svg.append('text')
             .attr('fill', 'black')
             .attr('text-anchor', 'middle')
-            .attr('font-size', '190%');
+            .attr('font-size', '120%');
 
        scope.$watchGroup(['value', 'maxValue'],function(newVal){
          var value = newVal[0];
