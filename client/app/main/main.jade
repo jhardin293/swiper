@@ -23,10 +23,8 @@
           p(ng-click="listViewOn()") list view
         md-button
           p(ng-click="reset()") reset
-    md-fab-speed-dial.fab-wrapper(md-direction="right")
-      md-fab-trigger
-       md-button.md-fab.fab-btn(ng-click="showAddDialog()")
-         md-icon(md-svg-src="../../../assets/iconsets/add.svg")
+        md-button
+          p(ng-click="showAddDialog()") new card
     md-content.main-content.layout-padding.flex
       div(ng-if="listView")
         div(layout="row",layout-wrap)
