@@ -31,10 +31,10 @@
           md-button.tool-bar-button
             md-icon(md-svg-icon="../../assets/iconsets/expand.svg")
     md-toolbar()
-      .md-toolbar-tools.sub-nav
-        md-button.reset(ng-click="reset()")
+      .md-toolbar-tools.sub-nav(layout-align="end")
+        md-button.reset(flex,ng-click="reset()")
           p reset
-        md-button.new-card(ng-click="showAddDialog($event)")
+        md-button.new-card(flex,ng-click="showAddDialog($event)")
           p new card
     md-content.main-content.layout-padding.flex
       div(ng-if="listView")

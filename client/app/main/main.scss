@@ -66,6 +66,7 @@ md-sidenav {
       margin-left: 12px;
       color: white;
    }
+
   }
   ul {
     margin: 0;
@@ -156,6 +157,7 @@ md-content {
   background-color: $md-grey;
 
   .md-button, md-button {
+    max-width: 184px;
     border: 1px solid;
     height: 40px;
     line-height: 10px;
