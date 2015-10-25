@@ -1,0 +1,19 @@
+md-dialog(aria-label='List dialog')
+  md-dialog-content
+    h2.md-title
+      | Edit card
+    form(name='projectForm')
+      md-input-container
+        label Front
+        input(md-maxlength='30', required='', name='front', ng-model='note.front')
+        div(ng-messages='projectForm.description.$error')
+          div(ng-message='required') This is required.
+          div(ng-message='md-maxlength') The name has to be less than 30 characters long.
+      md-input-container
+        label Back
+        input(md-maxlength='30', required='', name='back', ng-model='note.back')
+  .md-actions
+    md-button.md-primary(ng-click='closeDialog()')
+      | Cancel
+    md-button.md-primary(ng-click='editCard()')
+      | Save

@@ -131,6 +131,17 @@ angular.module('fullTestApp')
       });
     };
 
+    $scope.showEditDialog = function($event, note) {
+      var parentEl = angular.element(document.body);
+      $mdDialog.show({
+        parent: parentEl,
+        targetEvent: $event,
+        locals: { card: note },
+        templateUrl: 'components/edit/edit.html',
+        controller: 'EditController'
+      });
+    };
+
     $scope.deleteThing = function(thing) {
       $http.delete('/api/things/' + thing._id);
     };

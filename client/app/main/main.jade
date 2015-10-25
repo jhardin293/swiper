@@ -24,7 +24,7 @@
   .flex.layout.layout-column
     md-toolbar.top-nav
       .md-toolbar-tools
-        div(flex, class="expand", ng-if="sidebarLocked")
+        div(flex, class="expand")
           md-button.tool-bar-button(ng-click="toogleSideBar()")
             md-icon(md-svg-icon="../../assets/iconsets/expand.svg")
     md-toolbar
@@ -32,7 +32,7 @@
         md-button
           p(ng-click="reset()") reset
         md-button
-          p(ng-click="showAddDialog()") new card
+          p(ng-click="showAddDialog($event)") new card
     md-content.main-content.layout-padding.flex
       div(ng-if="listView")
         div(layout="row",layout-wrap)
@@ -72,7 +72,7 @@
                         md-button.card-bottom.left(ng-click="deleteNote(note)")
                           md-icon(md-svg-icon="../../assets/iconsets/delete.svg")
                       div(flex="50")
-                        md-button.card-bottom.right(ng-click="toogleFlip(note)")
+                        md-button.card-bottom.right(ng-click="showEditDialog($event,note)")
                           md-icon(md-svg-icon="../../assets/iconsets/edit.svg")
                   .back
                     .controlls(layout="row")
@@ -88,7 +88,7 @@
                         md-button.card-bottom.left(ng-click="deleteNote(note)")
                           md-icon(md-svg-icon="../../assets/iconsets/delete.svg")
                       div(flex="50")
-                        md-button.card-bottom.right(ng-click="toogleFlip(note)")
+                        md-button.card-bottom.right(ng-click="showEditDialog($event,note)")
                           md-icon(md-svg-icon="../../assets/iconsets/edit.svg")
           div(flex)
             div(layout="column")
