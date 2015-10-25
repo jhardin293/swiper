@@ -6,21 +6,24 @@
       .sidebar-left-logo
         h2.sidebar-left-title.flex Swiper
     md-content.nav-content(flex)
-      ul
-         li()
-           p View
-           h3(ng-click="listViewOn()")
-             span: img(src="../../assets/iconsets/list.svg")
-             | List
-           h3
-             span: img(src="../../assets/iconsets/card.svg")
-             | Card
-           h3
-             span: img(src="../../assets/iconsets/grid.svg")
-             | Grid
-           ul()
-             li()
-               menu-toggle(section="decks")
+     ul.view
+       p
+        | View
+       md-button.item(ng-click="listViewOn()"): li
+         h3
+           span: md-icon(md-svg-icon="../../assets/iconsets/list.svg")
+           | List
+       md-button.item: li
+         h3
+           span: md-icon(md-svg-icon="../../assets/iconsets/card.svg")
+           | Card
+       md-button.item: li
+         h3
+           span: md-icon(md-svg-icon="../../assets/iconsets/grid.svg")
+           | Grid
+     ul()
+       li()
+         menu-toggle(section="decks")
   .flex.layout.layout-column
     md-toolbar.top-nav
       .md-toolbar-tools

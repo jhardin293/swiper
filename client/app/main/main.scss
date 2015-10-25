@@ -29,6 +29,17 @@ $yellow: #E2BC40;
   }
 }
 
+//Side nav list icon
+g#Mobile-Portrait {
+  //fill: white;
+}
+
+.view {
+  span {
+    margin-right: 15px;
+  }
+}
+
 md-sidenav {
   background-color:$teal;
   height: 100vh;
@@ -59,12 +70,29 @@ md-sidenav {
   ul {
     margin: 0;
     padding-left: 0;
+
+    p {
+      text-transform: uppercase;
+      color: white;
+      padding-left: 32px;
+    }
   }
   .list-item {
     background-color: rgb(97, 213, 164);
   }
   .nav-content {
-    background-color: rgba(97, 213, 164, 0.85);
+    background-color: rgba(145, 234, 196, 0.89);
+  }
+
+  .item {
+    width: 100%;
+    outline: none;
+    margin-left: 0;
+    color: white;
+    h3 {
+      text-align: left;
+      padding-left: 30px;
+    }
   }
   .sidenav-menu {
     border-radius: 0;
@@ -74,7 +102,6 @@ md-sidenav {
     align-items: inherit;
     line-height: 40px;
     margin: 0;
-    max-height: 40px;
     overflow: hidden;
     text-align: left;
     text-decoration: none;
@@ -146,7 +173,7 @@ md-toolbar{
 }
 
 .main-content {
-  padding-top: 20px;
+  padding: 20px;
 }
 
 .instructions {
