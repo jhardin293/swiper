@@ -213,6 +213,18 @@ md-toolbar{
     -webkit-user-select: none;
     font-size: 75%;
   }
+  .card-icon {
+    svg {
+      fill: rgba(85, 109, 118, 0.23);
+    }
+  }
+  .md-button:hover {
+    .card-icon {
+      svg {
+        fill: rgb(85, 109, 118);
+      }
+    }
+  }
 
   &:hover {
   cursor: pointer;
