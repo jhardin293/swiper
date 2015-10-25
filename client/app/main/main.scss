@@ -8,20 +8,27 @@ $yellow: #E2BC40;
   height: 100vh;
 }
 
-.fab-wrapper {
-  position: fixed;
-  bottom: 21px;
-  right: 41px;
-  .fab-btn {
-    background-color: $yellow;
-    &:hover {
-      background-color: $teal !important;
-    }
-    md-icon,svg {
-      fill: white;
-    }
+.modal-wrapper {
+  width: 30%;
+  padding: 34px;
+
+  .md-button, md-button {
+    border: 1px solid;
+    height: 40px;
+    line-height: 10px;
+    outline: none;
+  }
+
+  .save {
+    border-color: $teal;
+    color: $teal !important;
+  }
+  .cancel {
+    border-color: $grey;
+    color: $grey;
   }
 }
+
 md-sidenav {
   background-color:$teal;
   height: 100vh;
@@ -116,10 +123,28 @@ md-content {
 .sub-nav {
   box-shadow: 0 2px 6px 0 rgba(0,0,0,.14);
   background-color: $md-grey;
+
+  .md-button, md-button {
+    border: 1px solid;
+    height: 40px;
+    line-height: 10px;
+    outline: none;
+  }
+  .reset {
+    border-color: $yellow;
+    color: $yellow !important;
+  }
+
+  .new-card {
+    border-color: $teal;
+    color: $teal !important;
+  }
 }
+
 md-toolbar{
   background-color: transparent;
 }
+
 .main-content {
   padding-top: 20px;
 }
