@@ -131,6 +131,10 @@ md-sidenav {
 .expand {
   position: absolute;
   right: 0;
+  button {
+    margin-right: 0;
+    height: 63px;
+  }
 }
 
 .tool-bar-button {
@@ -183,10 +187,16 @@ md-toolbar{
   .left {
     position: absolute;
     left: 0;
+    md-icon {
+      padding-right: 5px;
+    }
   }
   .right {
     position: absolute;
     right: 0;
+    md-icon {
+      padding-left: 5px;
+    }
   }
   p {
     font-size: 70%;
@@ -196,6 +206,12 @@ md-toolbar{
     width: 25px;
   }
 }
+
+//swip icons
+g#icon-19-one-finger-swipe-right, g#icon-18-one-finger-swipe-left {
+  fill: #556D76;
+}
+
 .cards {
   height: 300px;
   position: relative;

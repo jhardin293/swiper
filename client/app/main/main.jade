@@ -27,8 +27,8 @@
   .flex.layout.layout-column
     md-toolbar.top-nav
       .md-toolbar-tools
-        div(flex, class="expand")
-          md-button.tool-bar-button(ng-click="toogleSideBar()")
+        div(flex, class="expand",ng-click="toogleSideBar()")
+          md-button.tool-bar-button
             md-icon(md-svg-icon="../../assets/iconsets/expand.svg")
     md-toolbar()
       .md-toolbar-tools.sub-nav
@@ -52,11 +52,11 @@
               div(layout)
                 .left(flex)
                   p
-                   span: img(src="../../assets/iconsets/swipe-left.svg")
+                   span: md-icon(md-svg-icon="../../assets/iconsets/swipe-left.svg")
                    | Swipe left if unsure
                 .right(flex)
                   p Swipe right if sure
-                   span: img(src="../../assets/iconsets/swipe-right.svg")
+                   span: md-icon(md-svg-icon="../../assets/iconsets/swipe-right.svg")
             .cards(id="cards")
               .card-wrapper(ng-repeat="note in notes", ng-if="!note.throwOut"
               , swipe-Item, note="note", id='note{{ $index }}')
