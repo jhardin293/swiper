@@ -87,7 +87,7 @@ module.exports = function (grunt) {
       sass: {
         files: [
           '<%= yeoman.client %>/{app,components}/**/*.{scss,sass}'],
-        tasks: ['sass', 'autoprefixer']
+        tasks: ['sass', 'postcss']
       },
       jade: {
         files: [
@@ -179,9 +179,12 @@ module.exports = function (grunt) {
     },
 
     // Add vendor prefixed styles
-    autoprefixer: {
+    postcss: {
       options: {
-        browsers: ['last 1 version']
+        map: true,
+        processors: [
+         require('autoprefixer')({ browsers: ['> 5%','last 1 version'] })
+        ]
       },
       dist: {
         files: [{
@@ -618,7 +621,7 @@ module.exports = function (grunt) {
         'concurrent:server',
         'injector',
         'wiredep',
-        'autoprefixer',
+        'postcss',
         'concurrent:debug'
       ]);
     }
@@ -630,7 +633,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'injector',
       'wiredep',
-      'autoprefixer',
+      'postcss',
       'express:dev',
       'wait',
       'open',
@@ -659,7 +662,7 @@ module.exports = function (grunt) {
         'injector:sass', 
         'concurrent:test',
         'injector',
-        'autoprefixer',
+        'postcss',
         'karma'
       ]);
     }
@@ -673,7 +676,7 @@ module.exports = function (grunt) {
         'concurrent:test',
         'injector',
         'wiredep',
-        'autoprefixer',
+        'postcss',
         'express:dev',
         'protractor'
       ]);
@@ -692,7 +695,7 @@ module.exports = function (grunt) {
     'injector',
     'wiredep',
     'useminPrepare',
-    'autoprefixer',
+    'postcss',
     'ngtemplates',
     'concat',
     'ngAnnotate',
