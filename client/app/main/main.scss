@@ -78,6 +78,7 @@ md-sidenav {
       padding-left: 32px;
     }
   }
+
   .list-item {
     background-color: rgb(97, 213, 164);
   }
@@ -107,7 +108,15 @@ md-sidenav {
     text-align: left;
     text-decoration: none;
     white-space: normal;
-    width: 100%; 
+    width: 100%;
+
+    .drop-down{
+      margin: 0;
+    }
+
+    md-icon svg {
+      fill: white;
+    }
 
   }
 }

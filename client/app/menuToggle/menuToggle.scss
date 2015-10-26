@@ -1,0 +1,9 @@
+.md-button-toggle {
+  transition: transform 0.3s ease-in-out;
+  .md-toggle-icon {
+    transition: transform 0.3s ease-in-out;
+  }
+  .toggled {
+    transform: rotate(180deg);
+  }
+}
