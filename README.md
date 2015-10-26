@@ -1,5 +1,5 @@
 ## Swiper
-![Alt text](/Design/demo.gif?raw=true)
+![](/Design/demo.gif)
 
 #About
 Swiper is a flash card web app that allows the user to easily create, edit and test flash cards. The app uses a “Tinder” like swipe interaction to help the user test there understanding of a particular subject. The user can swipe right on the card if they understand or swipe left if they are unsure. The results and progress are updated in real time.
