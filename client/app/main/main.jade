@@ -27,7 +27,9 @@
   .flex.layout.layout-column
     md-toolbar.top-nav
       .md-toolbar-tools
-        div(flex, class="expand",ng-click="toogleSideBar()")
+        md-button(ng-if="mobileSize === true",ng-click="toogleSideBar()")
+          md-icon(md-svg-icon="../../assets/iconsets/menu.svg")
+        div(flex, class="expand",ng-if="mobileSize === false",ng-click="toogleSideBar()")
           md-button.tool-bar-button
             md-icon(md-svg-icon="../../assets/iconsets/expand.svg")
     md-toolbar()

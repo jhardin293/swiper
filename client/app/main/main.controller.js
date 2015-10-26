@@ -3,10 +3,16 @@ angular.module('fullTestApp')
   .controller('MainCtrl', function ($scope, $interval,
   $http, socket, $mdDialog, $mdMedia) {
     $scope.sideBarLocked = true;
+    $scope.mobileSize = false;
     $scope.$watch(function() { return $mdMedia('gt-md'); }, function(md) {
       $scope.sideBar = md;
       $scope.sideBarLocked = md;
-      console.log(md);
+      if(md === true ) {
+        $scope.mobileSize = false;
+      }else {
+        $scope.mobileSize = true;
+      }
+      console.log($scope.mobileSize);
     });
 
     $scope.toogleSideBar = function () {
