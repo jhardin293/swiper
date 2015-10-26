@@ -79,6 +79,13 @@ angular.module('fullTestApp')
       }
     };
 
+    $scope.cardViewOn = function () {
+      if(!$scope.cardView) {
+        $scope.cardView = true;
+        $scope.listView = false;
+      }
+    };
+
     var menuEvent;
     $scope.openListMenu = function ($mdOpenMenu, $event) {
       menuEvent = $event;
@@ -96,9 +103,9 @@ angular.module('fullTestApp')
         console.log(i);
         delete $scope.notes[i].understand;
         $scope.notes[i].throwOut = false;
-      })
+      });
       updateCounts();
-    }
+    };
 
 
 
