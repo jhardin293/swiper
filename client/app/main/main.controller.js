@@ -79,6 +79,12 @@ angular.module('fullTestApp')
       }
     };
 
+    var menuEvent;
+    $scope.openListMenu = function ($mdOpenMenu, $event) {
+      menuEvent = $event;
+      $mdOpenMenu($event);
+    };
+
     var updateCounts = function () {
       $scope.sure = _.where($scope.notes, { understand: true, throwOut: true });
       $scope.unsure = _.where($scope.notes, { understand: false , throwOut: true});

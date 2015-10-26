@@ -40,10 +40,29 @@
       div(ng-if="listView")
         div(layout="row",layout-wrap)
           div(flex="100")
-            .list-item(ng-repeat="note in notes")
+            .list-item(ng-repeat="note in notes" )
+              .controlls
+                md-menu
+                  md-button.menu(ng-click="openListMenu($mdOpenMenu, $event)")
+                    md-icon(md-svg-icon="../../assets/iconsets/more-vert.svg")
+                  md-menu-content(width="4")
+                    md-menu-item
+                      md-button(ng-click="showEditDialog($event,note)")
+                        md-icon.card-icon(md-svg-icon="../../assets/iconsets/edit.svg")
+                        | Edit
+                    md-menu-item
+                      md-button(ng-click="deleteNote(note)")
+                        md-icon.card-icon(md-svg-icon="../../assets/iconsets/delete.svg")
+                        | Delete
+                    md-menu-item
+                      md-button
+                        md-icon.card-icon(md-svg-icon="../../assets/iconsets/favorite.svg")
+                        | Favorite
               .front
+                p Front
                 h3 {{ note.front }}
               .back
+                p Back
                 h3 {{ note.back }}
       div(ng-if="cardView")
         div(layout="row",layout-sm="column")
